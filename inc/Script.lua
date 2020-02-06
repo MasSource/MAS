@@ -119,6 +119,18 @@ end
 redis:set(max..'lock:kara:'..msg.chat_id_,'off')
 return "🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* تم تفعيل الرفع في المجموعه \n✓"
 end
+function cmdss_on(msg)
+if not msg.Admin then return "♦️*│*هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n💥"
+end
+redis:set(max..'lock:karaa:'..msg.chat_id_,'on')
+return "🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* تم تعطيل التسليه \n✓"
+end
+function cmdss_off(msg)
+if not msg.Admin then return "♦️*│*هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n💥"
+end
+redis:set(max..'lock:karaa:'..msg.chat_id_,'off')
+return "🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* تم تفعيل التسليه\n✓"
+end
 
 function lockjoin(msg)
 if not msg.Admin then return "📛*│* هذا الامر يخص {الادمن,المدير,المنشئ,المطور} فقط  \n🚶"
@@ -157,6 +169,12 @@ return cmds_on(msg)
 end
 if MsgText[1] == "تفعيل الرفع" and not MsgText[2] then
 return cmds_off(msg) 
+end
+if MsgText[1] == "تعطيل التسليه" and not MsgText[2] then
+return cmdss_on(msg)  
+end
+if MsgText[1] == "تفعيل التسليه" and not MsgText[2] then
+return cmdss_off(msg) 
 end
 
 if MsgText[1] == "قفل الدخول بالرابط" and not MsgText[2] then
@@ -743,7 +761,12 @@ end
 if MsgText[1] == "رفع زق" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="zkzk"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -759,7 +782,12 @@ end
 if MsgText[1] == "رفع دجاجه" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="dadaa"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -775,7 +803,12 @@ end
 if MsgText[1] == "رفع حمار" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="motee"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -791,7 +824,12 @@ end
 if MsgText[1] == "رفع قرد" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="yyuu"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -807,7 +845,12 @@ end
 if MsgText[1] == "رفع بقره" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="bakki"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -823,7 +866,12 @@ end
 if MsgText[1] == "رفع تيس" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
-GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="hame"})
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
+GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="hamee"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -839,7 +887,12 @@ end
 if MsgText[1] == "رفع كلب" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="kalb"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -855,7 +908,12 @@ end
 if MsgText[1] == "رفع زاحف" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="zaahf"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -870,7 +928,12 @@ end
 if MsgText[1] == "رفع كيكه" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="kkaak"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -885,7 +948,12 @@ end
 if MsgText[1] == "رفع بصله" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="bbaa"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -900,7 +968,12 @@ end
 if MsgText[1] == "رفع ذبانه" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="ttaa"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -915,7 +988,12 @@ end
 if MsgText[1] == "رفع كليجه" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="kkw"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -931,7 +1009,12 @@ end
 if MsgText[1] == "رفع ثور" then
 if not msg.Rank then end
 if not MsgText[2] and msg.reply_id then
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'off' then
 GetMsgInfo(msg.chat_id_,msg.reply_id,action_by_reply,{msg=msg,cmd="voo"})
+end
+end
+if redis:get(max..'lock:karaa:'..msg.chat_id_) == 'on' then  
+sendMsg(msg.chat_id_,msg.id_,"🙋🏼‍♂️*╿* أهلا عزيزي "..msg.TheRankCmd.."\n📡*╽* اوامر التسليه معطله\n✓")
 end
 return false
 end
@@ -2901,21 +2984,21 @@ if msg.text=="/start" then
 if msg.SudoBase then
 local text = '🙋🏻‍♂┊منور يقلبي ♥\n🔻┊آنت آلمـطـور آلآسـآسـي هنآ 🛠\nـــــــــــــــــــــــــــــــــــــــــــــــــــــــــ\n\n🚸┊تسـتطـيع‌‏ التحكم بكل آلآوآمـر آلمـمـوجوده‌‏ بالكيبورد الخاص بالبوت\n🔺┊فقط اضـغط ع الامـر الذي تريد تنفيذه'
 local keyboard = {
-{"ضع اسم للبوت ","ضع صوره للترحيب "},
- {"تعطيل التواصل ","تفعيل التواصل "},
-{"تعطيل البوت خدمي","تفعيل البوت خدمي","المطورين "},
- {"المشتركين ","المجموعات ","الاحصائيات "},
- {"اضف رد عام ","الردود العامه "},
- {"اذاعه ","اذاعه خاص "},
-{"اذاعه عام ","اذاعه عام بالتوجيه "},
- {"تحديث ","قائمة العام ","ايديي"},
-{"تعطيل الاشتراك الاجباري ","تفعيل الاشتراك الاجباري "},
-{"تغيير الاشتراك الاجباري ","الاشتراك الاجباري "},
-{"تنظيف المشتركين ","تنظيف المجموعات "},
+{"ضع اسم للبوت ©","ضع صوره للترحيب 🌄"},
+ {"تعطيل التواصل ✖️","تفعيل التواصل 🔛"},
+{"تعطيل البوت خدمي","تفعيل البوت خدمي","المطورين 🔥"},
+ {"المشتركين Ⓜ","المجموعات 🌋","الاحصائيات 💥"},
+ {"اضف رد عام ➕","الردود العامه 🗨"},
+ {"اذاعه 🗣","اذاعه خاص 🗣"},
+{"اذاعه عام 📢","اذاعه عام بالتوجيه 📣"},
+ {"تحديث ♻️","قائمه العام 📜","ايديي🆔"},
+{"تعطيل الاشتراك الاجباري ♻️","تفعيل الاشتراك الاجباري ☑"},
+{"تغيير الاشتراك الاجباري 🔁","الاشتراك الاجباري ⚠️"},
+{"تنظيف المشتركين 🗑","تنظيف المجموعات 🗑"},
  {"نسخه احتياطيه للمجموعات"},
- {"قناة السورس "},
- {"تحديث السورس "},
- {"الغاء الامر "}}
+ {"قناة السورس 📡"},
+ {"تحديث السورس 🔂"},
+ {"الغاء الامر ✖️"}}
 return send_key(msg.sender_user_id_,text,keyboard,nil,msg.id_)
 else
 redis:sadd(max..'users',msg.sender_user_id_)
@@ -4354,7 +4437,7 @@ elseif Text== "سلام" or Text== "السلام عليكم" or Text== "سلام
 return sendMsg(msg.chat_id_,msg.id_,"وعليكم السلام")
 elseif Text== "مساعدة"  then return sendMsg(msg.chat_id_,msg.id_,"لعرض قائمة المساعدة اكتب الاوامر 🌚❤️")
 elseif Text== "رفع لقلبي" then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂┇اهــلا عزيزي\n🎫┇تم رفع العضو داخل قلبك✔️\n🛠┇تمت ترقيته بنجاح 😻😹👋🏻\n✓️")
-elseif Text== "رفع زوجتي" then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂┇اهــلا عزيزي\n🎫┇تم رفع العضو زوجتك بنجاح✔️\nالآن يمكنكم أخذ راحتكم🤤😉\n✓️")
+elseif Text== "رفع زوجتي" then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂┇اهــلا عزيزي\n🎫┇تم رفع العضو زوجتك بنجاح✔️\nالآن يمكنكم أخذ راحتكم🤤??\n✓️")
 elseif Text== "طلاق" then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂┇اهــلا عزيزي\n🎫┇تم طلاق العضو بنجاح✔️\n🛠┇الآن هو مطلق يله انقلع برا 😹💔\n✓️")
 elseif Text== "تنزيل من قلبي" then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂┇اهــلا عزيزي\n🎫┇تم تنزيل من داخل قلبك✔️\n🛠┇تمت ازالته من قائمة القلوب 😹💔\n✓️")
 elseif Text== "تنزيل زوجتي" then return sendMsg(msg.chat_id_,msg.id_,"🙋🏻‍♂┇اهــلا عزيزي\n🎫┇تم تنزيل الرمه زوجتك بنجاح✔️\nالآن انتم مفترقان☹️💔\n✓️")
@@ -4463,6 +4546,7 @@ end
 end
 json_data =  json_data..'}'
 end
+
 local owner = redis:smembers(max..'owners:'..GroupS)
 if #owner ~= 0 then
 json_data =  json_data..',"Owner" : {'
@@ -4530,6 +4614,8 @@ max = {
 "^(تعطيل الايدي بالصوره)$",
 "^(تعطيل الرفع)$",
 "^(تفعيل الرفع)$",
+"^(تعطيل التسليه)$",
+"^(تفعيل التسليه)$",
 "^(قفل الدخول بالرابط)$",
 "^(فتح الدخول بالرابط)$", 
 "^(ايدي)$",
